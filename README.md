@@ -1,21 +1,34 @@
 # Personal Portfolio
-This personal portfolio was built with React.js and Tailwind CSS to showcase my experience, achievements, and education. This responsive, modern, interactive project is designed to highlight my skills and experience.
+A personal portfolio built with React.js and Tailwind CSS to showcase my experiences, achievements, and education. This project is designed to be responsive, modern, and interactive.
 
-Key features:
-- Light/dark mode: Switch between light and dark themes for a comfortable visual experience.
+Key Features
+Light/Dark Mode: Seamlessly switch between light and dark themes for a comfortable visual experience.
 
-Dynamic Navigation: The navbar hides when you scroll down and reappears when you scroll up, providing clean, smooth navigation.
+Dynamic Navigation: A Navbar that hides on scroll down and reappears on scroll up, providing a clean and smooth navigation experience.
 
-Section Animation: Each section (About Me, Experiences, Achievements, Education, and Contact) has a smooth entry animation when scrolled into view.
+Section Animations: Each section (About Me, Experiences, Achievements, Education, Contact) features a subtle entrance animation as it scrolls into view.
 
-Experience the carousel. The "Experiences" section displays experiences in a carousel format that can be navigated with arrow keys and has smooth sliding animations.
+Experience Carousel: The "Experiences" section displays entries in a navigable carousel format with smooth sliding animations.
 
-Static Content Box: The "Achievements" and "Education" sections display information in a neat, responsive grid with subtle color differences.
+Static Content Boxes: The "Achievements" and "Education" sections present information in neat, responsive box layouts with subtle color differentiation.
 
-Contact Form: The "Contact" section provides a simple form with fields for name, email, and message to receive feedback from visitors.
+Contact Form: The "Contact" section includes a simple form with fields for name, email, and message, ready to receive visitor inquiries.
 
-CV Link: A direct link to view my CV in the "About Me" section.
+CV Link: A direct button in the "About Me" section to view my curriculum vitae.
 
-React Router v7 uses React Router (react-router-dom) and React Router Hash Link for client-side routing and smooth scrolling between sections. This improves the navigation experience by eliminating the need for full page reloads.
+React Router v7: Utilizes react-router-dom and react-router-hash-link for client-side routing and smooth scrolling between sections, enhancing the navigation experience without full page reloads.
 
-Footer: A section at the bottom of the page that spans its full width, featuring
+Footer: A full-width footer at the bottom of the page, displaying copyright information.
+
+Technologies Used
+React.js: A JavaScript library for building user interfaces.
+
+Tailwind CSS: A utility-first CSS framework for rapid and responsive styling.
+
+Framer Motion: A powerful and easy-to-use React animation library.
+
+React Router (v7): For navigation and routing in single-page applications.
+
+React Intersection Observer: For detecting when elements enter or exit the viewport.
+
+React Router Hash Link: For smooth scrolling to hash IDs with React Router.
