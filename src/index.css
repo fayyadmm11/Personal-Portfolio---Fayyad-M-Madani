@@ -1,0 +1,115 @@
+@import url("[https://fonts.googleapis.com/css2?family=Tomorrow:wght@500&display=swap](https://fonts.googleapis.com/css2?family=Tomorrow:wght@500&display=swap)");
+
+/* src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Global Adjustment to Prevent Horizontal Scroll Bar --- */
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+html {
+  height: 100%;
+}
+
+/* --- Customize the body background with the app theme --- */
+body {
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f3f4f6; /* Warna bg-gray-100 Tailwind untuk tema terang */
+}
+
+/* change the background body for a dark theme*/
+.dark body {
+  background-color: #1f2937; /* Warna bg-gray-800 Tailwind untuk tema gelap */
+}
+
+/* --- CUSTOM SCROLLBAR STYLING --- */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Ini sudah benar, akan mengikuti background body */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #2563eb; /* Warna biru untuk scrollbar (sesuai blue-600 Tailwind) */
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+/* For a dark theme, change the color of the thumb scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #93c5fd; /* Warna biru yang lebih terang untuk dark mode (sesuai blue-300 Tailwind) */
+}
+
+/* --- Properties of :root and Other Elements (removed background-color from :root) --- */
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  /* background-color: #242424; <--- Hapus ini dari :root */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    /* background-color: #ffffff; <--- Hapus ini dari :root */
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
