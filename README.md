@@ -1,12 +1,21 @@
-# React + Vite
+# Personal Portfolio
+This personal portfolio was built with React.js and Tailwind CSS to showcase my experience, achievements, and education. This responsive, modern, interactive project is designed to highlight my skills and experience.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Key features:
+- Light/dark mode: Switch between light and dark themes for a comfortable visual experience.
 
-Currently, two official plugins are available:
+Dynamic Navigation: The navbar hides when you scroll down and reappears when you scroll up, providing clean, smooth navigation.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Section Animation: Each section (About Me, Experiences, Achievements, Education, and Contact) has a smooth entry animation when scrolled into view.
 
-## Expanding the ESLint configuration
+Experience the carousel. The "Experiences" section displays experiences in a carousel format that can be navigated with arrow keys and has smooth sliding animations.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Static Content Box: The "Achievements" and "Education" sections display information in a neat, responsive grid with subtle color differences.
+
+Contact Form: The "Contact" section provides a simple form with fields for name, email, and message to receive feedback from visitors.
+
+CV Link: A direct link to view my CV in the "About Me" section.
+
+React Router v7 uses React Router (react-router-dom) and React Router Hash Link for client-side routing and smooth scrolling between sections. This improves the navigation experience by eliminating the need for full page reloads.
+
+Footer: A section at the bottom of the page that spans its full width, featuring
