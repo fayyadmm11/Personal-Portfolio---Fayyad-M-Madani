@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./contexts/ThemeContext";

@@ -67,8 +67,6 @@ export default function Navbar() {
     setShowAboutDropdown(false);
   };
 
-  // --- KUNCI PERUBAHAN WARNA ADA DI SINI ---
-  // Tentukan warna stroke berdasarkan tema yang aktif
   const iconStrokeColor = theme === "dark" ? "#93c5fd" : "#2563eb"; // blue-300 untuk dark, blue-600 untuk light
 
   return (
@@ -161,7 +159,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* --- Mobile Hamburger Icon (muncul di mobile) --- */}
+        {/* --- Mobile Hamburger Icon --- */}
         <div className="md:hidden flex items-center">
           <button
             id="hamburger-button"
@@ -169,7 +167,7 @@ export default function Navbar() {
             className="focus:outline-none p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
           >
             {isMobileMenuOpen ? (
-              // Ikon Tutup (X)
+              // Close Icon (X)
               <svg
                 xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
                 className="h-8 w-8"
@@ -185,13 +183,13 @@ export default function Navbar() {
                 />
               </svg>
             ) : (
-              // Ikon Hamburger
+              // Hamburger Icon
               <svg
                 xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)"
                 className="h-8 w-8"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke={iconStrokeColor} // --- WARNA STROKE DIATUR DI SINI ---
+                stroke={iconStrokeColor}
                 strokeWidth="2"
               >
                 <path
@@ -205,7 +203,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* --- Mobile Menu Content (muncul di bawah kapsul utama saat terbuka) --- */}
+      {/* --- Mobile Menu Content --- */}
       {isMobileMenuOpen && (
         <div
           ref={mobileMenuRef}
