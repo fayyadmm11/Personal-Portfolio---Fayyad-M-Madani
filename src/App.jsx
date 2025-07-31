@@ -1,3 +1,4 @@
+// src/App.jsx
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./contexts/ThemeContext";
@@ -109,6 +110,17 @@ const ExperienceCarousel = ({ experiences }) => {
     });
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const onDragEnd = (e, { offset, velocity }) => {
+    const swipe = Math.abs(offset.x) * velocity.x;
+
+    if (swipe < -swipeConfidenceThreshold) {
+      paginate(1);
+    } else if (swipe > swipeConfidenceThreshold) {
+      paginate(-1);
+    }
+  };
+
   const currentExperience = experiences[page];
 
   return (
@@ -121,7 +133,11 @@ const ExperienceCarousel = ({ experiences }) => {
           initial="enter"
           animate="center"
           exit="exit"
-          className="w-full max-w-2xl p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-inner min-h-[200px] flex flex-col justify-center"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={onDragEnd}
+          className="w-full max-w-2xl p-6 bg-gray-100 dark:bg-gray-800 rounded-lg shadow-inner min-h-[200px] flex flex-col justify-center cursor-grab"
         >
           <h3 className="text-xl font-semibold dark:text-gray-100 mb-2">
             {currentExperience.title}
@@ -137,7 +153,7 @@ const ExperienceCarousel = ({ experiences }) => {
 
       <button
         onClick={() => paginate(-1)}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-10 transition-colors duration-200"
+        className="absolute top-1/2 left-4 -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-10 transition-colors duration-200 hidden md:block"
         aria-label="Previous experience"
       >
         <svg
@@ -157,7 +173,7 @@ const ExperienceCarousel = ({ experiences }) => {
       </button>
       <button
         onClick={() => paginate(1)}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-10 transition-colors duration-200"
+        className="absolute top-1/2 right-4 -translate-y-1/2 bg-blue-500 hover:bg-blue-700 text-white p-2 rounded-full shadow-lg z-10 transition-colors duration-200 hidden md:block"
         aria-label="Next experience"
       >
         <svg
@@ -230,8 +246,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {" "}
-      {/* <--- WRAP THE ENTIRE APPLICATION WITH THE BROWSERROUTER */}
       <div
         className={`min-h-screen flex flex-col ${
           theme === "dark"
@@ -240,7 +254,7 @@ function App() {
         } transition-colors duration-300`}
       >
         <Navbar />
-        <main className="flex-grow px-[120px] pt-28 pb-8">
+        <main className="flex-grow px-4 md:px-8 lg:px-20 xl:px-[120px] pt-28 pb-8">
           {/* 1st Chapter: About Me */}
           <AnimatedSection
             id="about-me"
@@ -249,11 +263,10 @@ function App() {
           >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <div className="md:w-1/2 text-center md:text-left">
-                <h2 className="text-3xl font-extrabold mb-4 text-blue-600 dark:text-blue-300 font-tomorrow">
+                <h2 className="text-2xl sm:text-3xl font-extrabold mb-4 text-blue-600 dark:text-blue-300 font-tomorrow">
                   About Me
                 </h2>
-                <p className="text-lg dark:text-gray-200 text-justify mb-6">
-                  {" "}
+                <p className="text-base sm:text-lg dark:text-gray-200 text-justify mb-6">
                   Allow me to introduce myself. My name is Fayad M. Madani. I am
                   a new student of Information Systems at the University of
                   Indonesia. I am interested in data analysis, machine learning,
@@ -275,7 +288,7 @@ function App() {
                 <img
                   src="/myPhoto.jpg"
                   alt="Fayyad M Madani"
-                  className="rounded-full w-64 h-64 object-cover border-4 border-blue-600 dark:border-blue-300 shadow-lg"
+                  className="rounded-full w-48 h-48 sm:w-64 sm:h-64 object-cover border-4 border-blue-600 dark:border-blue-300 shadow-lg"
                 />
               </div>
             </div>
@@ -284,10 +297,10 @@ function App() {
           {/* 2nd Chapter: Experiences - With Carousel */}
           <AnimatedSection
             id="experiences"
-            fromRight={false} // Swipe from left
+            fromRight={false}
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
-            <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
               Experiences
             </h2>
             <ExperienceCarousel experiences={experiencesData} />
@@ -296,10 +309,10 @@ function App() {
           {/* 3rd Chapter: Achievements - With Static Box */}
           <AnimatedSection
             id="achievements"
-            fromRight={true} // Swipe from Right
+            fromRight={true}
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
-            <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
               Achievements
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -320,7 +333,7 @@ function App() {
             fromRight={false}
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
-            <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
               Education
             </h2>
             <div className="grid grid-cols-1 gap-6">
@@ -343,7 +356,7 @@ function App() {
             fromRight={true}
             className="p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
-            <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
               Contact
             </h2>
             <form className="space-y-6">
@@ -359,6 +372,7 @@ function App() {
                   type="text"
                   id="name"
                   name="name"
+                  autoComplete="name"
                   className="w-full p-3 rounded-lg border-2 border-blue-600 dark:border-blue-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-200"
                   placeholder="Enter your name"
                 />
@@ -375,6 +389,7 @@ function App() {
                   type="email"
                   id="email"
                   name="email"
+                  autoComplete="email"
                   className="w-full p-3 rounded-lg border-2 border-blue-600 dark:border-blue-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-200"
                   placeholder="Enter your email"
                 />
@@ -391,7 +406,8 @@ function App() {
                   id="message"
                   name="message"
                   rows="3"
-                  className="w-full p-3 rounded-lg border-2 border-blue-600 dark:border-blue-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-200 resize-y" // resize-y agar bisa diresize vertikal
+                  autoComplete="off"
+                  className="w-full p-3 rounded-lg border-2 border-blue-600 dark:border-blue-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-200 resize-y"
                   placeholder="Write your message here..."
                 ></textarea>
               </div>
