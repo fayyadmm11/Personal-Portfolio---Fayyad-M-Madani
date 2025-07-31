@@ -1,4 +1,3 @@
-// src/App.jsx
 import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import { useTheme } from "./contexts/ThemeContext";
@@ -6,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { BrowserRouter } from "react-router-dom"; // Import BrowserRouter
 
+// My Data
 // --- Experiences Data ---
 const experiencesData = [
   {
@@ -54,12 +54,13 @@ const educationData = [
     period: "2025 - Now",
   },
   {
-    degree: "", // Kosongkan jika tidak ada gelar khusus untuk SMA
+    degree: "",
     institution: "SMAN 1 Padang Panjang",
     period: "2022 - 2025",
   },
 ];
 
+// Animation
 // --- Animation Variations for Section ---
 const sectionVariants = {
   hiddenFromRight: { x: "100%", opacity: 0 },
@@ -91,6 +92,7 @@ const carouselVariants = {
   }),
 };
 
+// Components
 // --- Components ExperienceCarousel ---
 const ExperienceCarousel = ({ experiences }) => {
   const [[page, direction], setPage] = useState([0, 0]);
@@ -221,6 +223,7 @@ const AnimatedSection = ({ id, children, fromRight, className }) => {
   );
 };
 
+// App
 // --- Main App Components ---
 function App() {
   const { theme } = useTheme();
@@ -228,7 +231,7 @@ function App() {
   return (
     <BrowserRouter>
       {" "}
-      {/* <--- WRAP SELURUH APLIKASI DENGAN BROWSERROUTER */}
+      {/* <--- WRAP THE ENTIRE APPLICATION WITH THE BROWSERROUTER */}
       <div
         className={`min-h-screen flex flex-col ${
           theme === "dark"
@@ -241,7 +244,7 @@ function App() {
           {/* 1st Chapter: About Me */}
           <AnimatedSection
             id="about-me"
-            fromRight={true} // Geser dari kanan
+            fromRight={true}
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -260,8 +263,8 @@ function App() {
                 </p>
                 <a
                   href="[https://drive.google.com/file/d/11NzvMokeyI_ORYFgF2ZCNF8BRlp41aCV/view?usp=sharing](https://drive.google.com/file/d/11NzvMokeyI_ORYFgF2ZCNF8BRlp41aCV/view?usp=sharing)"
-                  target="_blank" // Membuka link di tab baru
-                  rel="noopener noreferrer" // Praktik keamanan yang baik
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-400 dark:hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105"
                 >
                   My CV
@@ -270,8 +273,8 @@ function App() {
 
               <div className="md:w-1/2 flex justify-center items-center mt-8 md:mt-0">
                 <img
-                  src="/myPhoto.jpg" // Path ke foto Anda di folder public
-                  alt="Foto Profil Anda"
+                  src="/myPhoto.jpg"
+                  alt="Fayyad M Madani"
                   className="rounded-full w-64 h-64 object-cover border-4 border-blue-600 dark:border-blue-300 shadow-lg"
                 />
               </div>
@@ -281,7 +284,7 @@ function App() {
           {/* 2nd Chapter: Experiences - With Carousel */}
           <AnimatedSection
             id="experiences"
-            fromRight={false} // Geser dari kiri
+            fromRight={false} // Swipe from left
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
             <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
@@ -293,7 +296,7 @@ function App() {
           {/* 3rd Chapter: Achievements - With Static Box */}
           <AnimatedSection
             id="achievements"
-            fromRight={true} // Geser dari kanan
+            fromRight={true} // Swipe from Right
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
             <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
@@ -314,7 +317,7 @@ function App() {
           {/* 4th Chapter: Education - With Static Box */}
           <AnimatedSection
             id="education"
-            fromRight={false} // Geser dari kiri
+            fromRight={false}
             className="mb-12 p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
             <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
@@ -324,10 +327,10 @@ function App() {
               {educationData.map((edu, index) => (
                 <StaticContentBox
                   key={index}
-                  title={edu.institution} // Menggunakan institution sebagai title
+                  title={edu.institution}
                   subtitle={
                     edu.degree ? `${edu.degree} (${edu.period})` : edu.period
-                  } // Menyesuaikan subtitle
+                  }
                   className="col-span-1"
                 />
               ))}
@@ -337,7 +340,7 @@ function App() {
           {/* 5th Chapter: Contact Me */}
           <AnimatedSection
             id="contact-me"
-            fromRight={true} // Geser dari kanan
+            fromRight={true}
             className="p-8 rounded-lg shadow-md bg-white dark:bg-gray-700 border-2 border-blue-600 dark:border-blue-300"
           >
             <h2 className="text-3xl font-bold mb-4 text-blue-600 dark:text-blue-300">
@@ -350,7 +353,7 @@ function App() {
                   htmlFor="name"
                   className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
                 >
-                  Your Name {/* <--- LABEL TEKS DITAMBAHKAN */}
+                  Your Name
                 </label>
                 <input
                   type="text"
@@ -366,7 +369,7 @@ function App() {
                   htmlFor="email"
                   className="block text-lg font-medium text-gray-700 dark:text-gray-200 mb-2"
                 >
-                  Your Email {/* <--- LABEL TEKS DITAMBAHKAN */}
+                  Your Email
                 </label>
                 <input
                   type="email"
@@ -387,7 +390,7 @@ function App() {
                 <textarea
                   id="message"
                   name="message"
-                  rows="3" // Mengatur tinggi textarea menjadi sekitar 3 baris
+                  rows="3"
                   className="w-full p-3 rounded-lg border-2 border-blue-600 dark:border-blue-300 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 transition-all duration-200 resize-y" // resize-y agar bisa diresize vertikal
                   placeholder="Write your message here..."
                 ></textarea>
