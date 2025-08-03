@@ -1,4 +1,4 @@
-// src/contexts/ThemeContext.jsx (atau src/components/ThemeContext.jsx)
+// src/contexts/ThemeContext.jsx
 import React, { createContext, useState, useEffect, useContext } from "react";
 
 const ThemeContext = createContext();

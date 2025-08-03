@@ -274,7 +274,7 @@ function App() {
                   coordinating teams.
                 </p>
                 <a
-                  href="[https://drive.google.com/file/d/11NzvMokeyI_ORYFgF2ZCNF8BRlp41aCV/view?usp=sharing](https://drive.google.com/file/d/11NzvMokeyI_ORYFgF2ZCNF8BRlp41aCV/view?usp=sharing)"
+                  href="https://drive.google.com/file/d/11NzvMokeyI_ORYFgF2ZCNF8BRlp41aCV/view?usp=sharing"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-blue-600 hover:bg-blue-700 dark:bg-blue-400 dark:hover:bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105"

@@ -164,7 +164,7 @@ export default function Navbar() {
           <button
             id="hamburger-button"
             onClick={toggleMobileMenu}
-            className="focus:outline-none p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+            className="focus:outline-none p-2 rounded-md transition theme === dark hover:bg-gray-800 hover:bg-gray-100"
           >
             {isMobileMenuOpen ? (
               // Close Icon (X)
